@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="card mt-3">
+    <div class="card-header">
+      <div class="float-left">
+        <h4>Usuários</h4>
+      </div>
+      <div class="float-right">
+        <button *ngIf="is_sys_admin" type="button" class="btn btn-primary" routerLink="/register">Novo usuário</button>
+        <button type="button" class="btn btn-primary" routerLink="/profile">Editar Perfil</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Ações</th> 
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>
+              <span class="float-right">
+                <button class="btn btn-outline-warning mb-1 btn-sm">
+                  Atualizar
+                </button>
+                <button class="btn btn-outline-danger mb-1 btn-sm" (click)="confirmDelete(user.id)">
+                  Remover
+                </button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

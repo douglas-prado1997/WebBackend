@@ -1,0 +1,37 @@
+<div class="content">
+  <div class="details">
+    <h1>➡️ Registrar</h1>
+    <form  class="form-horizontal" (ngSubmit)="onRegister()" #registerForm="ngForm">
+      <!--NOME-->
+      <div class="col-sm-12">
+        <label for="nome" class="control-label">Nome:</label>
+      </div>
+      <div class="col-sm-12">
+        <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="requestRegister.name" required placeholder="Digite seu nome">
+      </div>
+      <!--E-MAIL-->
+      <div class="col-sm-12">
+        <label for="email" class="control-label">E-Mail:</label>
+      </div>
+      <div class="col-sm-12">
+        <input type="text" class="form-control" id="email" name="email" [(ngModel)]="requestRegister.email" required placeholder="Digite seu Email">
+      </div>
+      <!--SENHA-->
+      <div class="col-sm-12">
+        <label for="password" class="control-label">Senha:</label>
+      </div>
+      <div class="col-sm-12">
+        <input type="password" class="form-control" id="password" name="password"  [(ngModel)]="requestRegister.password" required placeholder="Digite sua senha">
+      </div>
+      <!--CONFIRMAR SENHA-->
+      <div class="col-sm-12">
+        <label for="confirmpassword" class="control-label">Confirmar senha:</label>
+      </div>
+      <div class="col-sm-12">
+        <input type="password" class="form-control" id="confirmpassword" name="confirmpassword"  [(ngModel)]="requestRegister.confirmpassword" required placeholder="Digite sua senha novamente">
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">Enviar</button>
+    </form>
+  </div>
+</div>

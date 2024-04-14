@@ -1,0 +1,23 @@
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+
+}.content > h1{
+  font-size: 20px;
+}
+
+.tech{
+  margin-top: 20px;
+  margin: 20px;
+}
+.tech > li > a > p{
+  color: var(--white-color);
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
