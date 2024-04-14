@@ -27,6 +27,12 @@ export class PostComponent {
 
   onSubmit(): void {
     let data = this.localStorageService.getData('user');
+
+    if(data == null){
+      alert("você não esta logado !")
+      this.router.navigate(['login']);
+    }
+      
     let id =  data.user[0]?.id;
     const postData = {
       name: this.name,

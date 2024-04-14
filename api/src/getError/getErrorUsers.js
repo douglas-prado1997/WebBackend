@@ -4,35 +4,35 @@ const  validateField = async (request, response, next) => {
     const { body } = request;
 
     if (body.name === undefined) {
-        return response.status(400).json({ message: 'The field "name" is required' });
+        return response.status(400).json({ message: 'O campo nome é obrigatório' });
     }
 
     if (body.name === '') {
-        return response.status(400).json({ message: 'name cannot be empty' });
+        return response.status(400).json({ message: 'Nome está em vazio' });
     }
 
     if (body.email === undefined) {
-        return response.status(400).json({ message: 'The field "email" is required' });
+        return response.status(400).json({ message: 'O campo email é obrigatório' });
     }
 
     if (body.email === '') {
-        return response.status(400).json({ message: 'email cannot be empty' });
+        return response.status(400).json({ message: 'email está em vazio' });
     }
 
     if (body.password === undefined) {
-        return response.status(400).json({ message: 'The field "password" is required' });
+        return response.status(400).json({ message: 'O campo password é obrigatório' });
     }
 
     if (body.password === '') {
-        return response.status(400).json({ message: 'password cannot be empty' });
+        return response.status(400).json({ message: 'password está em vazio' });
     }
 
     if (!validatesNumberLetters(body.password)) {
-        return response.status(400).json({ message: 'password must have letters and numbers' });
+        return response.status(400).json({ message: 'a senha deve conter letras e números' });
     }
 
     if (await ValidateUserExists(body.email) > 0){
-        return response.status(400).json({message: 'E-mail already registered'});
+        return response.status(400).json({message: 'E-mail já registrado'});
     }
         
     next();
