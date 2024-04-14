@@ -28,7 +28,6 @@ const deleteUsers = async (request, response) => {
 
   const login = async (request, response) => {
     const user = await usersModel.login(request.body.email, request.body.password);
-    console.log(user)
   
     if (user.length > 0) {
       await createUserToken(user, request, response);

@@ -40,8 +40,6 @@ const  validateField = async (request, response, next) => {
 
 async function ValidateUserExists(email) {
         const users = await usersModel.getUserByEmail(email);
-        console.log(users);
-        console.log(users.length)
         return users.length; 
 }
 
