@@ -24,8 +24,8 @@ export class UsersComponent implements OnInit {
     let data = this.localStorageService.getData('user')
     this.is_sys_admin = data.user.is_sys_admin ?? false ;
     this.id = data.user.id ?? 0;
-    this.userService.getAll().subscribe((tasks: any[]) => {
-      this.users = tasks;
+    this.userService.getAll().subscribe((users: any[]) => {
+      this.users = users;
     });
   }
 
@@ -44,8 +44,8 @@ export class UsersComponent implements OnInit {
   }
 
   refreshTaskList() {
-    this.userService.getAll().subscribe((tasks: any[]) => {
-      this.users = tasks;
+    this.userService.getAll().subscribe((users: any[]) => {
+      this.users = users;
     });
   }
 }

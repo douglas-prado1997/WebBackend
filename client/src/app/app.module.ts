@@ -7,7 +7,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
-import { FooterComponent } from './components/partials/footer/footer.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { ReadmeComponent } from './components/pages/readme/readme.component';
 import { AboutComponent } from './components/pages/about/about.component';
@@ -21,7 +20,6 @@ import { LoginComponent } from './components/pages/login/login.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     HomeComponent,
     ReadmeComponent,
     AboutComponent,
