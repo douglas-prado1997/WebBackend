@@ -25,7 +25,7 @@ const createPost = async (post) => {
 const getPost = async () => {
     const [post] = await connection.execute(
         "SELECT p.id,p.name, description, CONVERT(image USING utf8) AS image, " +
-        "value, u.name as responsible  FROM post p " + 
+        "value, u.name as responsible,count_like  FROM post p " + 
         "INNER JOIN users u ON (u.id = p.id_responsible);"
       );
       
@@ -44,6 +44,7 @@ const likePost = async (like) => {
         const [result] = await connection.execute(query, [id_post, id_user]);
 
         if (result.affectedRows === 1) {
+            await connection.execute('update post set count_like = count_like + 1 where id =?',[id_post])
             return { success: true, postId: result.insertId };
         } else {
             return { success: false, error: "Falha ao inserir post." };

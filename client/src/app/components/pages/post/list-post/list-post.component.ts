@@ -35,9 +35,9 @@ export class ListPostComponent {
       id_post: post.id,
       id_user:this.user.user[0]?.id
     }
-    debugger
     this.postService.likePost(data).subscribe(
       () => {
+        this.refreshOostList();
         this.router.navigate(['list-post']);
       },
       (error) => {
@@ -68,6 +68,10 @@ export class ListPostComponent {
     }
   }
 
-
+  refreshOostList() {
+    this.postService.getAll().subscribe((users: any[]) => {
+      this.posts = users;
+    });
+  }
 
 }
