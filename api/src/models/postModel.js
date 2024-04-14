@@ -9,7 +9,7 @@ const createPost = async (post) => {
             VALUES (?, ?, ?, ?, ?, ?)
         `;
         
-        const [result] = await connection.execute(query, [name, description, ingredients, value, image, 1]);
+        const [result] = await connection.execute(query, [name, description, ingredients, value, image, id_responsible]);
 
         if (result.affectedRows === 1) {
             return { success: true, postId: result.insertId };
@@ -23,7 +23,7 @@ const createPost = async (post) => {
 };
 
 const getPost = async () => {
-    const [post] = await connection.execute('select * from post')
+    const [post] = await connection.execute("SELECT name, description,CONVERT(image USING utf8)  AS image, value, id_responsible FROM post;");
     return post || []
 };
 

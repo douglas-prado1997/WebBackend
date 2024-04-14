@@ -53,26 +53,26 @@ export class PostComponent {
         img.src = e.target.result;
   
         img.onload = () => {
-          const canvas = document.createElement('canvas');
-          const MAX_WIDTH = 200; // Largura máxima desejada para a imagem
-          const MAX_HEIGHT = 200; // Altura máxima desejada para a imagem
+          const DESIRED_SIZE = 200; 
+  
           let width = img.width;
           let height = img.height;
   
-          if (width > MAX_WIDTH || height > MAX_HEIGHT) {
-            if (width > height) {
-              height *= MAX_WIDTH / width;
-              width = MAX_WIDTH;
-            } else {
-              width *= MAX_HEIGHT / height;
-              height = MAX_HEIGHT;
-            }
+          if (width > height) {
+            height *= DESIRED_SIZE / width;
+            width = DESIRED_SIZE;
+          } else {
+            width *= DESIRED_SIZE / height;
+            height = DESIRED_SIZE;
           }
-          canvas.width = width;
-          canvas.height = height;
   
+          const canvas = document.createElement('canvas');
+          canvas.width = DESIRED_SIZE;
+          canvas.height = DESIRED_SIZE;
           const ctx = canvas.getContext('2d');
+  
           ctx?.drawImage(img, 0, 0, width, height);
+  
           const dataUrl = canvas.toDataURL('image/jpeg');
   
           this.image = dataUrl;
@@ -81,6 +81,7 @@ export class PostComponent {
       reader.readAsDataURL(file);
     }
   }
+s  
   
   
 }
