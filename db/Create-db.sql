@@ -10,3 +10,6 @@ CREATE TABLE post (id int PRIMARY KEY AUTO_INCREMENT,name varchar(200), descript
 
 
 
+
+
+

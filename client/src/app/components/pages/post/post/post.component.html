@@ -1,1 +1,44 @@
-<p>post works!</p>
+<div class="content">
+    <h2>Publicação de conteúdo!</h2>
+    <form class="form-horizontal" (ngSubmit)="onSubmit()" #postForm="ngForm" enctype="multipart/form-data">
+        <!-- NOME -->
+        <div class="col-sm-12">
+            <label for="name" class="control-label">Nome:</label>
+        </div>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required placeholder="Insira o nome">
+        </div>
+        <!-- DESCRIÇÃO -->
+        <div class="col-sm-12">
+            <label for="description" class="control-label">Descrição:</label>
+        </div>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description" required placeholder="Insira a descrição">
+        </div>
+        <!-- INGREDIENTES -->
+        <div class="col-sm-12">
+            <label for="ingredients" class="control-label">Ingredientes:</label>
+        </div>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="ingredients" name="ingredients" [(ngModel)]="ingredients" required placeholder="Insira os ingredientes">
+        </div>
+        <!-- IMAGEM -->
+        <div class="col-sm-12">
+            <label for="image" class="control-label">Imagem:</label>
+        </div>
+        <div class="col-sm-12">
+            <input type="file" class="form-control" id="image" name="image" (change)="handleFileInput($event)" required placeholder="Selecione uma imagem">
+        </div>
+        <!-- VALOR -->
+        <div class="col-sm-12">
+            <label for="value" class="control-label">Valor:</label>
+        </div>
+        <div class="col-sm-12">
+            <input type="number" class="form-control" id="value" name="value" [(ngModel)]="value" required placeholder="Insira o valor">
+        </div>
+        <!-- BOTÃO DE ENVIO -->
+        <div class="col-sm-12">
+            <button class="btn btn-primary mx-auto" type="submit" [disabled]="postForm.invalid">Postar Publicação</button>
+        </div>
+    </form>
+</div>
