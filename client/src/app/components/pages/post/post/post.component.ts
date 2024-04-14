@@ -81,7 +81,7 @@ export class PostComponent {
       reader.readAsDataURL(file);
     }
   }
-s  
+
   
   
 }
