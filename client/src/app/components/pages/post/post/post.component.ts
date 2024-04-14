@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/localStorageService';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -21,15 +22,19 @@ export class PostComponent {
   constructor(
     private postService: PostService,
     private router: Router,
+    private localStorageService: LocalStorageService,
   ) { }
 
   onSubmit(): void {
+    let data = this.localStorageService.getData('user');
+    let id =  data.user[0]?.id;
     const postData = {
       name: this.name,
       description: this.description,
       ingredients: this.ingredients,
       image: this.image,
-      value: this.value
+      value: this.value,
+      id_responsible:id
     };
 
     this.postService.create(postData).subscribe(

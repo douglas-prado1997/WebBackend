@@ -46,3 +46,25 @@
     margin-bottom: 0;
   }
   
+  /* Estilos para a tag h2 */
+.post-details h2 {
+    margin-top: 0;
+    font-size: 24px; /* Aumentando o tamanho da fonte */
+    font-weight: bold; /* Adicionando peso à fonte */
+    color: #333;
+    padding-bottom: 10px; /* Adicionando espaço abaixo do título */
+    border-bottom: 2px solid #ccc; /* Adicionando uma linha de separação */
+}
+
+/* Estilos para a tag p */
+.post-details p {
+    font-size: 18px; /* Aumentando o tamanho da fonte */
+    color: #555;
+    line-height: 1.8; /* Adicionando um pouco mais de espaço entre as linhas */
+    margin-bottom: 10px; /* Adicionando espaço abaixo do parágrafo */
+}
+
+/* Removendo a margem inferior do último parágrafo dentro de .post-details */
+.post-details p:last-child {
+    margin-bottom: 0;
+}

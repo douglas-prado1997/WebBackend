@@ -23,7 +23,12 @@ const createPost = async (post) => {
 };
 
 const getPost = async () => {
-    const [post] = await connection.execute("SELECT name, description,CONVERT(image USING utf8)  AS image, value, id_responsible FROM post;");
+    const [post] = await connection.execute(
+        "SELECT p.name, description, CONVERT(image USING utf8) AS image, " +
+        "value, u.name as responsible  FROM post p " + 
+        "INNER JOIN users u ON (u.id = p.id_responsible);"
+      );
+      
     return post || []
 };
 
