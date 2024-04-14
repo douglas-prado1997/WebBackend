@@ -26,10 +26,10 @@
             <td>{{user.email}}</td>
             <td>
               <span class="float-right">
-                <button class="btn btn-outline-warning mb-1 btn-sm" (click)="updateUsers(user.id)">
+                <button [disabled]="is_sys_admin == 0 && user.id != id" class="btn btn-outline-warning mb-1 btn-sm" (click)="updateUsers(user.id)">
                   Atualizar
                 </button>
-                <button class="btn btn-outline-danger mb-1 btn-sm" (click)="confirmDelete(user.id)">
+                <button [disabled]="is_sys_admin == 0 && user.id != id" class="btn btn-outline-danger mb-1 btn-sm" (click)="confirmDelete(user.id)">
                   Remover
                 </button>
               </span>
