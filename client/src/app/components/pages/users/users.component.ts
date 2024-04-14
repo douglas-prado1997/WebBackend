@@ -27,15 +27,12 @@ export class UsersComponent implements OnInit {
 
       setTimeout(() => {
         this.is_sys_admin = data.user[0].is_sys_admin ?? 0;
-        debugger
         this.id = data.user[0].id ?? 0;
         this.userService.getAll().subscribe((users: any[]) => {
           this.users = users;
       });
     });
   }
-
-
 
   confirmDelete(id: any) {
     this.userService.deleteById(id).subscribe(

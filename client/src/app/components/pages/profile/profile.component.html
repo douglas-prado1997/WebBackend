@@ -14,8 +14,8 @@
           <div class="col-sm-12">
               <label for="email" class="control-label">E-Mail:</label>
           </div>
-          <div class="col-sm-12">
-              <input type="email" class="form-control" id="email" name="email" required placeholder="Digite seu Email"
+          <div  class="col-sm-12" >
+              <input [disabled]="is_sys_admin == false" type="email" class="form-control" id="email" name="email" required placeholder="Digite seu Email"
                   [(ngModel)]="user.email">
           </div>
           <!--SENHA-->
@@ -35,7 +35,7 @@
                   placeholder="Digite sua senha novamente" [(ngModel)]="user.password">
           </div>
 
-          <button class="btn btn-primary" type="submit" [disabled]="editForm.invalid">Atualizar</button>
+          <button class="btn btn-primary" type="submit" [disabled]="editForm.invalid" >Atualizar</button>
       </form>
   </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorageService';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,7 +15,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -30,6 +32,16 @@ export class ProfileComponent implements OnInit {
   }
 
   onEdit(user: any) { 
+    debugger
+    this.userService.update(this.id, this.users[0]).subscribe(
+      () => {
+        this.router.navigate(['users']);
+      },
+      (error) => {
+        console.error('Erro ao atualizar usuário:', error);
+      }
+    );
+    
     
   }
 }
