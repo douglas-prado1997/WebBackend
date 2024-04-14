@@ -9,11 +9,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { ReadmeComponent } from './components/pages/readme/readme.component';
-import { AboutComponent } from './components/pages/about/about.component';
 import { UsersComponent } from './components/pages/users/users.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { PostComponent } from './components/pages/post/post/post.component';
 
 
 @NgModule({
@@ -22,11 +22,11 @@ import { LoginComponent } from './components/pages/login/login.component';
     HeaderComponent,
     HomeComponent,
     ReadmeComponent,
-    AboutComponent,
     UsersComponent,
     ProfileComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    PostComponent
 
   ],
   imports: [
