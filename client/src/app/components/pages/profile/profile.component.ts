@@ -32,7 +32,6 @@ export class ProfileComponent implements OnInit {
   }
 
   onEdit(user: any) { 
-    debugger
     this.userService.update(this.id, this.users[0]).subscribe(
       () => {
         this.router.navigate(['users']);

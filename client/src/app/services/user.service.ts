@@ -29,7 +29,6 @@ export class UserService {
 
   update(id: any, data: any): Observable<any> {
     const url = `${this.apiUrl}/${id}`;
-  debugger
     return this.http.put(url, data).pipe(
       catchError((error: HttpErrorResponse) => {
         console.error('Erro ao atualizar item:', error);

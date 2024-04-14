@@ -30,7 +30,6 @@ export class RegisterComponent {
       this.router.navigate(['users']);
     },
     error => {
-      debugger
       this.alertService.error(error.error.message);
     });
   }
