@@ -37,7 +37,7 @@ export class UsersComponent implements OnInit {
   confirmDelete(id: any) {
     this.userService.deleteById(id).subscribe(
       () => {
-        this.refreshTaskList();
+        this.refreshUsersList();
         alert('Item excluído com sucesso!');
       },
       (error) => {
@@ -51,7 +51,7 @@ export class UsersComponent implements OnInit {
     this.router.navigate(['/profile'], { queryParams: { id: id } });
   }
 
-  refreshTaskList() {
+  refreshUsersList() {
     this.userService.getAll().subscribe((users: any[]) => {
       this.users = users;
     });

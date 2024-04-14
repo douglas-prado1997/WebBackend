@@ -15,7 +15,7 @@ const checkToken = (req, res, next) => {
         return
     }
     try {
-        const decoded = jwt.verify(token, process.env.MY_SECRET)
+        const decoded = jwt.verify(token, 'secretpassword')
         req.user = decoded
         next()
     } catch (error) {

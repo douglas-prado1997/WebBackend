@@ -6,6 +6,13 @@
         <p>Descrição: {{ post.description }}</p>
         <p>Valor: {{ post.value }}</p>
         <p>Usuário que realizou a publicação: {{ post.responsible }}</p>
+        <form *ngIf="post.showCommentForm" (ngSubmit)="adicionarComentario(post)" class="comment-form">
+          <textarea [(ngModel)]="post.comentario" name="comentario" placeholder="Digite seu comentário"></textarea>
+          <br>
+          <button type="submit">Adicionar Comentario</button>
+        </form>
+        <button (click)="toggleCommentForm(post)" class="btn-comentar">{{ post.showCommentForm ? 'Encolher' : 'Comentar' }}</button>
+        <button (click)="curtirPost(post)" class="btn-curtir">Curtir 👍</button>
       </div>
     </div>
   </div>

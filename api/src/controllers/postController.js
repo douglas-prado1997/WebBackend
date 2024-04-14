@@ -6,13 +6,20 @@ const getPost = async (request, response) => {
       return response.status(200).json(post);
   }
 
-const createpost = async (request, response) => {
+const createPost = async (request, response) => {
     const createdPost = await postModel.createPost(request.body)
   
   return response.status(201).json(createdPost)
   }
 
+  const likePost = async (request, response) => {
+    const likePost = await postModel.likePost(request.body)
+  
+  return response.status(201).json(likePost)
+  }
+
   module.exports = {
-    createpost,
-    getPost
+    createPost,
+    getPost,
+    likePost
 };

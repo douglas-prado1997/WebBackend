@@ -39,7 +39,7 @@ export class PostComponent {
 
     this.postService.create(postData).subscribe(
       () => {
-        this.router.navigate(['users']);
+        this.router.navigate(['list-post']);
       },
       (error) => {
         console.error('Erro ao criar post:', error);

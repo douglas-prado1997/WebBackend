@@ -10,8 +10,9 @@ router.post('/users', usersGetError.validateField, usersController.createUsers);
 router.delete('/users/:id', usersController.deleteUsers);
 router.put('/users/:id', usersController.updateUsers);
 router.post('/login',  usersController.login);
-router.post('/post',  postController.createpost);
+router.post('/post',  postController.createPost);
 router.get('/post', postController.getPost);
+router.post('/post/like', postController.likePost);
 
 
 

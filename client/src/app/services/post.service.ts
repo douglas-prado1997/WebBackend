@@ -25,4 +25,16 @@ export class PostService {
       })
     );
   }
+
+  likePost(data: any): Observable<any> {
+
+    return this.http.post(this.apiUrl+'/like', data).pipe(
+        
+      catchError((error: HttpErrorResponse) => {
+        debugger
+        console.error('Erro ao criar item:', error);
+        return throwError('Erro ao criar item. Por favor, tente novamente mais tarde.');
+      })
+    );
+  }
 }
