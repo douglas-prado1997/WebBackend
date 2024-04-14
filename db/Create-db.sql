@@ -8,6 +8,7 @@ insert into users (name,email,PASSWORD,is_sys_admin )VALUES  ('Douglas','douglas
 CREATE TABLE post (id int PRIMARY KEY AUTO_INCREMENT,name varchar(200), description varchar(200),ingredients varchar(200),value float, image LONGBLOB, id_responsible int, count_like int DEFAULT 0 );
 
 CREATE TABLE like_post (id int PRIMARY KEY AUTO_INCREMENT,id_post int, id_responsible int);
+CREATE TABLE comment (id int PRIMARY KEY AUTO_INCREMENT,id_post int, id_responsible int,comment varchar(300));
 
 
 

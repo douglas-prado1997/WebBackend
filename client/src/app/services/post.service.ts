@@ -36,4 +36,19 @@ export class PostService {
       })
     );
   }
+
+  commentPost(data: any): Observable<any> {
+
+    return this.http.post(this.apiUrl+'/comment', data).pipe(
+        
+      catchError((error: HttpErrorResponse) => {
+        console.error('Erro ao criar item:', error);
+        return throwError('Erro ao criar item. Por favor, tente novamente mais tarde.');
+      })
+    );
+  }
+
+  getComment(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl+'/getcomment');
+  }
 }

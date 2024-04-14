@@ -12,7 +12,8 @@ import { LocalStorageService } from 'src/app/services/localStorageService';
 export class ListPostComponent {
 
   posts: any[] = [];
-  user:any
+  user:any;
+  commentPost:string = '';
 
   constructor(
     private postService: PostService,
@@ -58,13 +59,25 @@ export class ListPostComponent {
   }
 
   adicionarComentario(post: any) {
-    if (post.novoComentario.trim() !== '') {
-      if (!post.comentarios) {
-        post.comentarios = [];
+    if (this.commentPost.trim() !== '') {
+      const data = {
+        id_post: post.id,
+        id_user:this.user.user[0]?.id,
+        comment:this.commentPost
       }
-      post.comentarios.push(post.novoComentario);
-      post.novoComentario = '';
-      post.showCommentForm = false;
+      debugger
+      this.postService.commentPost(data).subscribe(
+        () => {
+          this.refreshOostList();
+          this.router.navigate(['comment']);
+          post.novoComentario = '';
+          post.showCommentForm = false;
+        },
+        (error) => {
+          console.error('Erro ao criar post:', error);
+        }
+      );
+
     }
   }
 

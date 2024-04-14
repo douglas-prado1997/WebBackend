@@ -8,7 +8,7 @@
         <p>Curtida: {{ post.count_like }}</p>
         <p>Usuário que realizou a publicação: {{ post.responsible }}</p>
         <form *ngIf="post.showCommentForm" (ngSubmit)="adicionarComentario(post)" class="comment-form">
-          <textarea [(ngModel)]="post.comentario" name="comentario" placeholder="Digite seu comentário"></textarea>
+          <textarea [(ngModel)]="commentPost" name="comentario" placeholder="Digite seu comentário"></textarea>
           <br>
           <button type="submit">Adicionar Comentario</button>
         </form>

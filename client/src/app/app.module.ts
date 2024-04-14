@@ -15,6 +15,7 @@ import { RegisterComponent } from './components/pages/register/register.componen
 import { LoginComponent } from './components/pages/login/login.component';
 import { PostComponent } from './components/pages/post/post/post.component';
 import { ListPostComponent } from './components/pages/post/list-post/list-post.component';
+import { CommentComponent } from './components/pages/post/comment/comment.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ListPostComponent } from './components/pages/post/list-post/list-post.c
     RegisterComponent,
     LoginComponent,
     PostComponent,
-    ListPostComponent
+    ListPostComponent,
+    CommentComponent
 
   ],
   imports: [

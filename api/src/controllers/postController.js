@@ -18,8 +18,22 @@ const createPost = async (request, response) => {
   return response.status(201).json(likePost)
   }
 
+  const comment = async (request, response) => {
+    const comment = await postModel.comment(request.body)
+  
+  return response.status(201).json(comment)
+  }
+
+  const getComment = async (request, response) => {
+    const comment = await postModel.getComment()
+  
+    return response.status(200).json(comment);
+  }
+
   module.exports = {
     createPost,
     getPost,
-    likePost
+    likePost,
+    comment,
+    getComment
 };

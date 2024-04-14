@@ -1,0 +1,11 @@
+<div class="container">
+    <div *ngFor="let comment of comments" class="post-container">
+      <img [src]="comment.image" alt="Imagem do post" class="post-image">
+      <div class="post-details">
+        <h2>Pizza: {{ comment.name }}</h2>
+        <p>Comentario feito por : {{ comment.responsible }}</p>
+        <p>Comentario : {{ comment.comment }}</p>
+      </div>
+    </div>
+  </div>
+  

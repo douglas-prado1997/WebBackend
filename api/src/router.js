@@ -13,6 +13,9 @@ router.post('/login',  usersController.login);
 router.post('/post',  postController.createPost);
 router.get('/post', postController.getPost);
 router.post('/post/like', postController.likePost);
+router.post('/post/comment', postController.comment);
+router.get('/post/getcomment', postController.getComment);
+
 
 
 
