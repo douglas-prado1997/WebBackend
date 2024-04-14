@@ -9,10 +9,8 @@ const createPost = async (post) => {
             VALUES (?, ?, ?, ?, ?, ?)
         `;
         
-        // Execute a consulta SQL
         const [result] = await connection.execute(query, [name, description, ingredients, value, image, 1]);
 
-        // Verifica se a inserção foi bem-sucedida
         if (result.affectedRows === 1) {
             return { success: true, postId: result.insertId };
         } else {
@@ -24,6 +22,12 @@ const createPost = async (post) => {
     }
 };
 
+const getPost = async () => {
+    const [post] = await connection.execute('select * from post')
+    return post || []
+};
+
 module.exports = {
-    createPost
+    createPost,
+    getPost
 };
