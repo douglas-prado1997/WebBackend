@@ -27,9 +27,4 @@ export class UserService {
     );
   }
 
-  getTaskById(usersId: string): Observable<any> {
-    return this.getAll().pipe(
-      map(users => users.find(users => users.id === usersId))
-    );
-  }
 }

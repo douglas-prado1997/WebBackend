@@ -11,7 +11,7 @@ import { LocalStorageService } from 'src/app/services/localStorageService';
 export class UsersComponent implements OnInit {
 
   users: any[] = [];
-  is_sys_admin: boolean = false;
+  is_sys_admin: number = 0;
   id: number = 0;
 
 
@@ -22,10 +22,13 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     let data = this.localStorageService.getData('user')
-    this.is_sys_admin = data.user.is_sys_admin ?? false ;
-    this.id = data.user.id ?? 0;
-    this.userService.getAll().subscribe((users: any[]) => {
-      this.users = users;
+
+      setTimeout(() => {
+        this.is_sys_admin = data.user[0].is_sys_admin ?? 0;
+        this.id = data.user[0].id ?? 0;
+        this.userService.getAll().subscribe((users: any[]) => {
+          this.users = users;
+      });
     });
   }
 

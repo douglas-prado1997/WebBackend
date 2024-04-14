@@ -5,7 +5,7 @@
         <h4>Usuários</h4>
       </div>
       <div class="float-right">
-        <button *ngIf="is_sys_admin" type="button" class="btn btn-primary" routerLink="/register">Novo usuário</button>
+        <button *ngIf="is_sys_admin == 1" type="button" class="btn btn-primary mr-2" routerLink="/register">Novo usuário</button>
         <button type="button" class="btn btn-primary" routerLink="/profile">Editar Perfil</button>
       </div>
     </div>

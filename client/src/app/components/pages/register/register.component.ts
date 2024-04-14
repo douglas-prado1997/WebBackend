@@ -27,7 +27,7 @@ export class RegisterComponent {
   onRegister() : void {
     this.registerService.goRegister(this.requestRegister).subscribe(data => {
       this.alertService.sucess("Registro eventuado com sucesso!");
-      this.router.navigate(['login']);
+      this.router.navigate(['users']);
     },
     error => {
       debugger
