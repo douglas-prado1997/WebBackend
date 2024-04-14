@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Subscription } from 'rxjs';
 import { LocalStorageService } from 'src/app/services/localStorageService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -17,7 +18,8 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -44,6 +46,11 @@ export class UsersComponent implements OnInit {
         console.error('Erro ao excluir item:', error);
       }
     );
+  }
+
+  updateUsers(id: any) {
+    this.localStorageService.setData('idEdit',id);
+    this.router.navigate(['/profile'], { queryParams: { id: id } });
   }
 
   refreshTaskList() {

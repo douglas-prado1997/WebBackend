@@ -19,8 +19,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     let data = this.localStorageService.getData('user');
+    let idEdit = this.localStorageService.getData('idEdit');
     this.is_sys_admin = data.user?.is_sys_admin ?? false;
-    this.id = data.user[0]?.id ?? 0;
+    this.id = idEdit  ?? data.user[0]?.id;
+    this.localStorageService.removeData('idEdit')
 
     this.userService.getAll().subscribe((users: any[]) => {
       this.users = users.filter(user => user.id === this.id);
