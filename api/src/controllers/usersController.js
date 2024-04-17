@@ -1,5 +1,5 @@
 const usersModel = require('../models/usersModel')
-const createUserToken = require('../util/create-user-token');
+const createTokenUser = require('../util/createTokenUser');
 
 const getUsers = async (request, response) => {
 const users = await usersModel.getUsers();
@@ -29,8 +29,8 @@ const deleteUsers = async (request, response) => {
   const login = async (request, response) => {
     const user = await usersModel.login(request.body.email, request.body.password);
   
-    if (user.length > 0) {
-      await createUserToken(user, request, response);
+    if (user.length == 1) {
+      await createTokenUser(user, request, response);
     } else {
       response.status(401).json("Credenciais inválidas");
     }

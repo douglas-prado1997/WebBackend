@@ -17,7 +17,6 @@ const createPost = async (post) => {
             return { success: false, error: "Falha ao inserir post." };
         }
     } catch (error) {
-        console.error("Erro ao inserir post:", error);
         return { success: false, error: "Erro ao inserir post. Por favor, tente novamente mais tarde." };
     }
 };

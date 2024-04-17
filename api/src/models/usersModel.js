@@ -3,15 +3,18 @@ const bcrypt = require('bcrypt');
 
 const getUsers = async () => {
     const [users] = await connection.execute('select * from users')
+    
     return users || []
 };
 
 const getUserByEmail = async (email) => {
     const [user] = await connection.execute('select * from users where email = ?',[email])
+
     return user || [];
 }
 const getUserById = async (id) => {
     const [user] = await connection.execute('select * from users where id = ?',[id])
+
     return user || [];
 }
 
@@ -32,7 +35,9 @@ const deleteUsers = async (id_users) => {
 
 const updateUsers = async (id_users,users) => {
     const {name, email,password} = users
-    const [updateUsers] = await connection.execute('update users set name = ?,email = ?,password = ? where id =?',[name,email,password,id_users])
+    const salt = await bcrypt.genSalt(17);
+    const passwordHash = await bcrypt.hash(password, salt);
+    const [updateUsers] = await connection.execute('update users set name = ?,email = ?,password = ? where id =?',[name,email,passwordHash,id_users])
 
     return updateUsers
 }
@@ -43,6 +48,7 @@ const login = async (email,password) => {
     if(!passwordMatch){
         return []
     }
+
     return user || [];
 }
 

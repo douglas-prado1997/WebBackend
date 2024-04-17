@@ -2,7 +2,7 @@ const express = require('express');
 const usersController = require('./controllers/usersController');
 const postController = require('./controllers/postController');
 const usersGetError = require('./getError/getErrorUsers');
-const verifyToken = require('../src/util/verify-token')
+const verifyToken = require('./util/verifyToken')
 
 const router = express.Router();
 
@@ -16,8 +16,6 @@ router.get('/post', postController.getPost);
 router.post('/post/like', postController.likePost);
 router.post('/post/comment', postController.comment);
 router.get('/post/getcomment', postController.getComment);
-
-
 
 
 module.exports = router;
