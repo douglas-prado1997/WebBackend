@@ -20,15 +20,15 @@ export class UsersComponent implements OnInit {
     private userService: UserService,
     private localStorageService: LocalStorageService,
     private router: Router,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+    this.userService.getAll().subscribe((users: any[]) => {
+      this.users = users;
+    });
     let data = this.localStorageService.getData('user')
-        this.is_sys_admin = data.user[0].is_sys_admin ?? 0;
-        this.id = data.user[0].id ?? 0;
-        this.userService.getAll().subscribe((users: any[]) => {
-          this.users = users;
-      });
+    this.is_sys_admin = data.user.is_sys_admin ?? 0;
+    this.id = data.user.id ?? 0;
   }
 
   confirmDelete(id: any) {
@@ -44,7 +44,7 @@ export class UsersComponent implements OnInit {
   }
 
   updateUsers(id: any) {
-    this.localStorageService.setData('idEdit',id);
+    this.localStorageService.setData('idEdit', id);
     this.router.navigate(['/profile'], { queryParams: { id: id } });
   }
 

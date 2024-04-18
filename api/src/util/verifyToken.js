@@ -20,4 +20,19 @@ const checkToken = (req, res, next) => {
     }
 }
 
-module.exports = checkToken
+
+const getUserByToken = (token) => {
+
+        const decoded = jwt.verify(token, process.env.SECRETPASSWORD)
+        const user = {
+            name: decoded.name,
+            id: decoded.id,
+            is_sys_admin: decoded.is_sys_admin
+        }
+        return user;
+}
+
+module.exports = {
+    checkToken,
+    getUserByToken
+};

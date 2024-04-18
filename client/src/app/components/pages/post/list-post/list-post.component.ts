@@ -12,8 +12,8 @@ import { LocalStorageService } from 'src/app/services/localStorageService';
 export class ListPostComponent {
 
   posts: any[] = [];
-  user:any;
-  commentPost:string = '';
+  user: any;
+  commentPost: string = '';
 
   constructor(
     private postService: PostService,
@@ -21,7 +21,7 @@ export class ListPostComponent {
     private localStorageService: LocalStorageService,
   ) { }
 
-  
+
 
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class ListPostComponent {
   curtirPost(post: any) {
     const data = {
       id_post: post.id,
-      id_user:this.user.user[0]?.id
+      id_user: this.user.user[0]?.id
     }
     this.postService.likePost(data).subscribe(
       () => {
@@ -62,10 +62,9 @@ export class ListPostComponent {
     if (this.commentPost.trim() !== '') {
       const data = {
         id_post: post.id,
-        id_user:this.user.user[0]?.id,
-        comment:this.commentPost
+        id_user: this.user.user[0]?.id,
+        comment: this.commentPost
       }
-      debugger
       this.postService.commentPost(data).subscribe(
         () => {
           this.refreshOostList();
